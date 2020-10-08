@@ -57,14 +57,21 @@ class MagicPotion extends Component {
             .catch(error => {
                 console.error('There was an error!', error);
             });
-            
+
         event.preventDefault();
     }
 
     handleItemInfoChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        const newItemInfo = { ...this.state.itemInfo, ...{[name]: value}};
+        let newItemInfo;
+        if (name === 'quantity') {
+            const total = value * 49.99;
+            newItemInfo = { ...this.state.itemInfo, ...{quantity: value, total}};
+        } else {
+            newItemInfo = { ...this.state.itemInfo, ...{[name]: value}};
+        }
+        
         this.setState({
             itemInfo: newItemInfo
         });
@@ -81,7 +88,7 @@ class MagicPotion extends Component {
 
     render () {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="magic-potion-container">
                 <Item itemInfo={this.state.itemInfo} handleChange={this.handleItemInfoChange} />
                 <Checkout customerInfo={this.state.customerInfo} handleChange={this.handleCustomerInfoChange} />
             </form>

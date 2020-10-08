@@ -6,3 +6,80 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// main
+body {
+    background: $background;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input {
+    margin-bottom: 16px;
+    padding: 4px 10px;
+}
+
+.section-header {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+// header
+.navbar {
+    background-color: $primary;
+}
+
+.navbar-light .navbar-brand {
+    color: $white;
+    margin: 0 auto;
+}
+
+// magic potion css
+.magic-potion-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// item css
+.item-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-right: 2px solid;
+}
+
+.item-details {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-container {
+    max-width: 300px;
+    margin-right: 30px;
+}
+
+.item-image {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.item-pricing {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item-price {
+    font-size: 20px;
+}
+
+// checkout css
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+}
