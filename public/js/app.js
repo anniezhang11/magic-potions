@@ -70223,7 +70223,7 @@ var MagicPotion = /*#__PURE__*/function (_Component) {
           }
         })
       };
-      fetch('http://localhost:8000/api/magic', requestOptions).then(function (response) {
+      fetch('/api/magic', requestOptions).then(function (response) {
         return response.json();
       }).then(function (data) {
         return console.log(data);
