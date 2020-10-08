@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
+    protected $table = 'customers';
+
     protected $fillable = [
-        'firstName', 
-        'lastName', 
+        'first_name', 
+        'last_name', 
         'email', 
         'address', 
         'city', 
@@ -17,4 +19,8 @@ class Customer extends Model
         'zip', 
         'phone'
     ];
+
+    public function orders() {
+        return $this->hasMany('App\Models\Order');
+    }
 }
