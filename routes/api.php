@@ -19,5 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('magic', [OrderController::class, 'index']);
 Route::post('magic', [OrderController::class, 'store']);
+Route::get('magic/{id}', [OrderController::class, 'show']);
+Route::patch('magic', [OrderController::class, 'update']);
+Route::delete('magic/{id}', [OrderController::class, 'delete']);

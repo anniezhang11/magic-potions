@@ -9,11 +9,6 @@ use App\Models\Customer;
 
 class OrderController extends Controller
 {
-    public function index()
-    {
-        return "hi";
-    }
-
     public function store(Request $request)
     {
         $data = json_decode($request->getContent());
@@ -21,7 +16,8 @@ class OrderController extends Controller
         $customer = DB::table('customers')
             ->where('first_name', '=', $data->firstName)
             ->where('last_name', '=', $data->lastName)
-            ->where('address', '=', $data->address->street1.' '.$data->address->street2)
+            ->where('street1', '=', $data->address->street1)
+            ->where('street2', '=', $data->address->street2)
             ->where('zip', '=', $data->address->zip)
             ->latest()
             ->first();
@@ -49,7 +45,8 @@ class OrderController extends Controller
                 'first_name' => $data->firstName, 
                 'last_name' => $data->lastName, 
                 'email' => $data->email, 
-                'address' => $data->address->street1.' '.$data->address->street2, 
+                'street1' => $data->address->street1,
+                'street2' => $data->address->street2, 
                 'city' => $data->address->city, 
                 'state' => $data->address->state, 
                 'zip' => $data->address->zip, 
@@ -68,5 +65,57 @@ class OrderController extends Controller
         return response()->json([
 			'id' => $order->id,
 		], 201);
+    }
+
+    public function show($id)
+    {
+        $order = Order::findOrFail($id);
+        $customer = Customer::where('id', '=', $order->customer_id)->first();
+        return response()->json([
+			"firstName" => $customer->first_name,
+            "lastName" => $customer->last_name,
+            "email" => $customer->email,
+            "address" => [
+                "street1" => $customer->street1,
+                "street2" => $customer->street2,
+                "city" => $customer->city,
+                "state" => $customer->state,
+                "zip" => $customer->zip,
+            ],
+            "phone" => $customer->phone,
+            "payment" => [
+                "ccNum" => $order->card_number,
+                "exp" => $order->card_expiration,
+            ],
+            "quantity" => $order->quantity,
+            "total" => $order->total,
+            "orderDate" => $order->created_at,
+            "fulfilled" => $order->fulfilled,
+		], 200);
+    }
+
+    public function update(Request $request)
+    {
+        $data = json_decode($request->getContent());
+
+        $order = Order::findOrFail($data->id);
+        $order->fulfilled = $data->fulfilled;
+        $order->save();
+
+        return json(
+            "resource updated successfully", 
+            204
+        );
+    }
+
+    public function delete($id)
+    {
+        $order = Order::findOrFail($id);
+        $order->delete();
+
+        return json(
+            "resource deleted successfully", 
+            204
+        );
     }
 }
