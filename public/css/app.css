@@ -10932,6 +10932,7 @@ select {
 .magic-potion-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   padding: 20px;
 }
 
@@ -10944,6 +10945,7 @@ select {
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 700px;
 }
 
 .item-details {
@@ -10967,6 +10969,12 @@ select {
 
 .item-label {
   margin-bottom: 10px;
+}
+
+.item-description {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-style: italic;
 }
 
 .checkout-container {

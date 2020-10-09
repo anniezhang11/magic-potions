@@ -55,7 +55,15 @@ class MagicPotion extends Component {
 
     validateExpiration = (cardExp) => {
         if (/(^\d{2}\/\d{2}$)/.test(cardExp)) {
-            return true;
+            const expInfo = cardExp.split("/");
+            const month = expInfo[0];
+            const year = expInfo[1];
+            if (month > 0 && month <= 12) {
+                const expDate = new Date(month + "/01/20" + year);
+                if (expDate >= new Date()) {
+                    return true;
+                }
+            }
         }
         return false;
     }
@@ -184,14 +192,20 @@ class MagicPotion extends Component {
 
         fetch('http://localhost:8000/api/magic', requestOptions)
             .then(response => response.json())
-            .then(data => this.handleSuccess(data.id))
+            .then(data => this.handleSuccess(data))
             .catch(error => {
                 alert(error);
             });
     }
 
-    handleSuccess = (id) => {
-        alert("Order #" + id + " has been placed!");
+    handleSuccess = (data) => {
+        if (data.error) {
+            alert(data.error);
+            return;
+        }
+
+        alert("Order #" + data.id + " has been placed!");
+
         this.setState({
             customerInfo: {
                 firstName: '',

@@ -70270,6 +70270,8 @@ var Item = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "item-price"
       }, "$49.99"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "item-description"
+      }, "This potion is magical!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "item-label"
       }, "Quantity (max 3):"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "quantity",
@@ -70377,7 +70379,17 @@ var MagicPotion = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "validateExpiration", function (cardExp) {
       if (/(^\d{2}\/\d{2}$)/.test(cardExp)) {
-        return true;
+        var expInfo = cardExp.split("/");
+        var month = expInfo[0];
+        var year = expInfo[1];
+
+        if (month > 0 && month <= 12) {
+          var expDate = new Date(month + "/01/20" + year);
+
+          if (expDate >= new Date()) {
+            return true;
+          }
+        }
       }
 
       return false;
@@ -70535,14 +70547,19 @@ var MagicPotion = /*#__PURE__*/function (_Component) {
       fetch('http://localhost:8000/api/magic', requestOptions).then(function (response) {
         return response.json();
       }).then(function (data) {
-        return _this.handleSuccess(data.id);
+        return _this.handleSuccess(data);
       })["catch"](function (error) {
         alert(error);
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleSuccess", function (id) {
-      alert("Order #" + id + " has been placed!");
+    _defineProperty(_assertThisInitialized(_this), "handleSuccess", function (data) {
+      if (data.error) {
+        alert(data.error);
+        return;
+      }
+
+      alert("Order #" + data.id + " has been placed!");
 
       _this.setState({
         customerInfo: {

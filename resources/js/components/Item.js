@@ -13,6 +13,7 @@ class Item extends Component {
                     </div>
                     <div className="item-pricing">
                         <div className="item-price">$49.99</div>
+                        <div className="item-description">This potion is magical!</div>
                         <div className="item-label">Quantity (max 3):</div>
                         <input 
                             name="quantity" 
