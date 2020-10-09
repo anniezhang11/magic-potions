@@ -16,9 +16,10 @@ label {
     margin-bottom: 10px;
 }
 
-input {
+input, select {
     margin-bottom: 16px;
     padding: 4px 10px;
+    height: 34px;
 }
 
 .section-header {
@@ -41,16 +42,19 @@ input {
 .magic-potion-container {
     display: flex;
     flex-wrap: wrap;
+    padding: 20px;
+}
+
+.error-msg {
+    color: $secondary;
+    margin-bottom: 10px;
 }
 
 // item css
 .item-container {
     display: flex;
     flex-direction: column;
-    padding: 0 40px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-right: 2px solid;
+    width: 100%;
 }
 
 .item-details {
@@ -68,18 +72,42 @@ input {
     margin-bottom: 20px;
 }
 
-.item-pricing {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .item-price {
     font-size: 20px;
+}
+
+.item-label {
+    margin-bottom: 10px;
 }
 
 // checkout css
 .checkout-container {
     display: flex;
     flex-direction: column;
-    padding: 30px 40px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.input-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.input-half {
+    width: 48%;
+    min-width: 240px;
+}
+
+.input-third {
+    width: 30%;
+    min-width: 150px;
+}
+
+.submit-btn {
+    width: 130px;
+    background: $supportingGreen;
+    border: 0;
+    border-radius: 2px;
+    color: $white;
 }

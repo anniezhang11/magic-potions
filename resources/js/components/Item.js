@@ -5,7 +5,7 @@ class Item extends Component {
         const { itemInfo, handleChange } = this.props;
 
         return (
-            <div className="item-container col-md-6">
+            <div className="item-container">
                 <div className="section-header">Magic Potion # 1</div>
                 <div className="item-details">
                     <div className="image-container">
@@ -13,7 +13,7 @@ class Item extends Component {
                     </div>
                     <div className="item-pricing">
                         <div className="item-price">$49.99</div>
-                        <label>Quantity:</label>
+                        <div className="item-label">Quantity (max 3):</div>
                         <input 
                             name="quantity" 
                             type="number" 
@@ -22,8 +22,8 @@ class Item extends Component {
                             min={0} 
                             max={3}
                         />
+                        <div>Total: ${itemInfo.total} </div>
                     </div>
-                    <label>Total: {itemInfo.total} </label>
                 </div>
             </div>
         )

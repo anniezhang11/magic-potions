@@ -69966,78 +69966,199 @@ var Checkout = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this$props = this.props,
           customerInfo = _this$props.customerInfo,
-          handleChange = _this$props.handleChange;
+          handleChange = _this$props.handleChange,
+          renderError = _this$props.renderError;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "checkout-container col-md-6"
+        className: "checkout-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "section-header"
-      }, "Contact | Billing Information"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Contact | Billing Information"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "firstName",
+        className: "input-half",
         type: "text",
         value: customerInfo.firstName,
         onChange: handleChange,
         placeholder: "First Name"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "lastName",
+        className: "input-half",
         type: "text",
         value: customerInfo.lastName,
         onChange: handleChange,
         placeholder: "Last Name"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        name: "email",
-        type: "text",
-        value: customerInfo.email,
-        onChange: handleChange,
-        placeholder: "Email Address"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "addressOne",
         type: "text",
         value: customerInfo.addressOne,
         onChange: handleChange,
-        placeholder: "Address Line 1"
+        placeholder: "Street Address"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "addressTwo",
         type: "text",
         value: customerInfo.addressTwo,
         onChange: handleChange,
-        placeholder: "Address Line 2"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        placeholder: "Apt/Suite/Other"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "city",
+        className: "input-third",
         type: "text",
         value: customerInfo.city,
         onChange: handleChange,
         placeholder: "City"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "state",
-        type: "text",
+        className: "input-third",
         value: customerInfo.state,
-        onChange: handleChange,
-        placeholder: "State"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: handleChange
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: ""
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "AL"
+      }, "Alabama"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "AK"
+      }, "Alaska"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "AZ"
+      }, "Arizona"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "AR"
+      }, "Arkansas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "CA"
+      }, "California"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "CO"
+      }, "Colorado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "CT"
+      }, "Connecticut"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "DE"
+      }, "Delaware"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "DC"
+      }, "District Of Columbia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "FL"
+      }, "Florida"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "GA"
+      }, "Georgia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "HI"
+      }, "Hawaii"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "ID"
+      }, "Idaho"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "IL"
+      }, "Illinois"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "IN"
+      }, "Indiana"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "IA"
+      }, "Iowa"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "KS"
+      }, "Kansas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "KY"
+      }, "Kentucky"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "LA"
+      }, "Louisiana"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "ME"
+      }, "Maine"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "MD"
+      }, "Maryland"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "MA"
+      }, "Massachusetts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "MI"
+      }, "Michigan"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "MN"
+      }, "Minnesota"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "MS"
+      }, "Mississippi"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "MO"
+      }, "Missouri"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "MT"
+      }, "Montana"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "NE"
+      }, "Nebraska"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "NV"
+      }, "Nevada"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "NH"
+      }, "New Hampshire"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "NJ"
+      }, "New Jersey"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "NM"
+      }, "New Mexico"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "NY"
+      }, "New York"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "NC"
+      }, "North Carolina"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "ND"
+      }, "North Dakota"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "OH"
+      }, "Ohio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "OK"
+      }, "Oklahoma"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "OR"
+      }, "Oregon"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "PA"
+      }, "Pennsylvania"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "RI"
+      }, "Rhode Island"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "SC"
+      }, "South Carolina"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "SD"
+      }, "South Dakota"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "TN"
+      }, "Tennessee"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "TX"
+      }, "Texas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "UT"
+      }, "Utah"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "VT"
+      }, "Vermont"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "VA"
+      }, "Virginia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "WA"
+      }, "Washington"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "WV"
+      }, "West Virginia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "WI"
+      }, "Wisconsin"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "WY"
+      }, "Wyoming")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "zip",
+        className: "input-third",
         type: "text",
         value: customerInfo.zip,
         onChange: handleChange,
         placeholder: "Zip Code"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "email",
+        className: "input-half",
+        type: "email",
+        value: customerInfo.email,
+        onChange: handleChange,
+        placeholder: "Email Address"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "phone",
+        className: "input-half",
         type: "text",
         value: customerInfo.phone,
         onChange: handleChange,
-        placeholder: "Phone Number"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        placeholder: "Phone Number (ex: 1234567890)"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "cardNumber",
+        className: "input-half",
         type: "text",
         value: customerInfo.cardNumber,
         onChange: handleChange,
         placeholder: "Credit Card Number"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "cardExpiration",
+        className: "input-half",
         type: "text",
         value: customerInfo.cardExpiration,
         onChange: handleChange,
         placeholder: "mm/yy"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), renderError(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "submit-btn",
         type: "submit",
         value: "Submit"
       }));
@@ -70134,7 +70255,7 @@ var Item = /*#__PURE__*/function (_Component) {
           itemInfo = _this$props.itemInfo,
           handleChange = _this$props.handleChange;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "item-container col-md-6"
+        className: "item-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "section-header"
       }, "Magic Potion # 1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70148,14 +70269,16 @@ var Item = /*#__PURE__*/function (_Component) {
         className: "item-pricing"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "item-price"
-      }, "$49.99"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Quantity:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "$49.99"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "item-label"
+      }, "Quantity (max 3):"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "quantity",
         type: "number",
         value: itemInfo.quantity,
         onChange: handleChange,
         min: 0,
         max: 3
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Total: ", itemInfo.total, " ")));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Total: $", itemInfo.total, " "))));
     }
   }]);
 
@@ -70223,40 +70346,224 @@ var MagicPotion = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function () {
+    _defineProperty(_assertThisInitialized(_this), "validateEmail", function (email) {
+      if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) {
+        return true;
+      }
+
+      return false;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "validateZip", function (zip) {
+      if (/(^\d{5}$)/.test(zip)) {
+        return true;
+      }
+
+      return false;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "validatePhone", function (phone) {
+      if (/(^\d{10}$)/.test(phone)) {
+        return true;
+      }
+
+      return false;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "validateCard", function (cardNum, cardExp) {
+      // can substitute plugin (ie stripe)
+      return true;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "validateExpiration", function (cardExp) {
+      if (/(^\d{2}\/\d{2}$)/.test(cardExp)) {
+        return true;
+      }
+
+      return false;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "formError", function (msg) {
+      _this.setState({
+        error: msg
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (event) {
+      event.preventDefault(); // clear any present error msg
+
+      _this.setState({
+        error: ''
+      }); // validation
+
+
+      var _this$state = _this.state,
+          customerInfo = _this$state.customerInfo,
+          itemInfo = _this$state.itemInfo;
+
+      if (customerInfo.firstName.trim() === '') {
+        _this.formError('Please enter a valid first name.');
+
+        return;
+      } else if (customerInfo.firstName.trim().length > 50) {
+        _this.formError('First name must be shorter than 50 characters.');
+
+        return;
+      }
+
+      if (customerInfo.lastName.trim() === '') {
+        _this.formError('Please enter a valid last name.');
+
+        return;
+      } else if (customerInfo.lastName.trim().length > 50) {
+        _this.formError('Last name must be shorter than 50 characters.');
+
+        return;
+      }
+
+      if (customerInfo.email.trim() === '') {
+        _this.formError('Please enter a valid email address.');
+
+        return;
+      } else if (customerInfo.email.trim().length > 50) {
+        _this.formError('Email address must be shorter than 50 characters.');
+
+        return;
+      } else if (!_this.validateEmail(customerInfo.email.trim())) {
+        _this.formError('Email address invalid.');
+
+        return;
+      }
+
+      if (customerInfo.addressOne.trim() === '') {
+        _this.formError('Please enter a valid street address.');
+
+        return;
+      } else if (customerInfo.addressOne.trim().length > 60) {
+        _this.formError('Street address must be shorter than 60 characters.');
+
+        return;
+      }
+
+      if (customerInfo.addressTwo.trim().length > 60) {
+        _this.formError('Second address field must be shorter than 60 characters.');
+
+        return;
+      }
+
+      if (customerInfo.city.trim() === '') {
+        _this.formError('Please enter a valid city.');
+
+        return;
+      } else if (customerInfo.city.trim().length > 50) {
+        _this.formError('City must be shorter than 50 characters.');
+
+        return;
+      }
+
+      if (customerInfo.state.trim() === '') {
+        _this.formError('Please enter a valid state.');
+
+        return;
+      } else if (customerInfo.state.trim().length > 50) {
+        _this.formError('State must be shorter than 50 characters.');
+
+        return;
+      }
+
+      if (customerInfo.zip.trim().length !== 5 || !_this.validateZip(customerInfo.zip.trim())) {
+        _this.formError('Please enter a valid zip code.');
+
+        return;
+      }
+
+      if (customerInfo.phone.trim().length !== 10 || !_this.validatePhone(customerInfo.phone.trim())) {
+        _this.formError('Please enter a valid phone number.');
+
+        return;
+      }
+
+      if (customerInfo.cardNumber.trim() == '' || customerInfo.cardNumber.trim().length > 20 || !_this.validateCard(customerInfo.cardNumber.trim())) {
+        _this.formError('Please enter a valid credit card number.');
+
+        return;
+      }
+
+      if (customerInfo.cardExpiration.trim().length > 20 || !_this.validateExpiration(customerInfo.cardExpiration.trim())) {
+        _this.formError('Please enter a valid credit card expiration date.');
+
+        return;
+      }
+
+      if (itemInfo.quantity > 3) {
+        _this.formError('Sorry, you can only purchase a maximum of 3 Magic Potion #1s.');
+
+        return;
+      } else if (itemInfo.quantity <= 0) {
+        _this.formError('Please enter a valid quantity.');
+
+        return;
+      } // request
+
+
       var requestOptions = {
         method: 'POST',
         headers: {
+          'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          firstName: _this.state.customerInfo.firstName,
-          lastName: _this.state.customerInfo.lastName,
-          email: _this.state.customerInfo.email,
+          firstName: customerInfo.firstName.trim(),
+          lastName: customerInfo.lastName.trim(),
+          email: customerInfo.email.trim(),
           address: {
-            street1: _this.state.customerInfo.addressOne,
-            street2: _this.state.customerInfo.addressTwo,
-            city: _this.state.customerInfo.city,
-            state: _this.state.customerInfo.state,
-            zip: _this.state.customerInfo.zip
+            street1: customerInfo.addressOne.trim(),
+            street2: customerInfo.addressTwo.trim(),
+            city: customerInfo.city.trim(),
+            state: customerInfo.state,
+            zip: customerInfo.zip.trim()
           },
-          phone: _this.state.customerInfo.phone,
-          quantity: _this.state.itemInfo.quantity,
-          total: _this.state.itemInfo.total,
+          phone: customerInfo.phone.trim(),
+          quantity: itemInfo.quantity,
+          total: itemInfo.total,
           payment: {
-            ccNum: _this.state.customerInfo.cardNumber,
-            exp: _this.state.customerInfo.cardExpiration
+            ccNum: customerInfo.cardNumber.trim(),
+            exp: customerInfo.cardExpiration.trim()
           }
         })
       };
       fetch('http://localhost:8000/api/magic', requestOptions).then(function (response) {
         return response.json();
       }).then(function (data) {
-        return console.log(data);
+        return _this.handleSuccess(data.id);
       })["catch"](function (error) {
-        console.error('There was an error!', error);
+        alert(error);
       });
-      event.preventDefault();
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleSuccess", function (id) {
+      alert("Order #" + id + " has been placed!");
+
+      _this.setState({
+        customerInfo: {
+          firstName: '',
+          lastName: '',
+          email: '',
+          addressOne: '',
+          addressTwo: '',
+          city: '',
+          state: '',
+          zip: '',
+          phone: '',
+          cardNumber: '',
+          cardExpiration: ''
+        },
+        itemInfo: {
+          quantity: 0,
+          total: '00.00'
+        },
+        error: ''
+      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleItemInfoChange", function (event) {
@@ -70290,6 +70597,16 @@ var MagicPotion = /*#__PURE__*/function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "renderError", function () {
+      if (_this.state.error) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "error-msg"
+        }, _this.state.error);
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null);
+    });
+
     _this.state = {
       customerInfo: {
         firstName: '',
@@ -70308,7 +70625,7 @@ var MagicPotion = /*#__PURE__*/function (_Component) {
         quantity: 0,
         total: '00.00'
       },
-      response: ''
+      error: ''
     };
     return _this;
   }
@@ -70324,7 +70641,8 @@ var MagicPotion = /*#__PURE__*/function (_Component) {
         handleChange: this.handleItemInfoChange
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Checkout__WEBPACK_IMPORTED_MODULE_1__["default"], {
         customerInfo: this.state.customerInfo,
-        handleChange: this.handleCustomerInfoChange
+        handleChange: this.handleCustomerInfoChange,
+        renderError: this.renderError
       }));
     }
   }]);
