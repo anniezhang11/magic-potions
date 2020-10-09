@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAddressFieldsToCustomersTable extends Migration
+class AlterAddressTwoFieldNullableCustomersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddAddressFieldsToCustomersTable extends Migration
     public function up()
     {
         Schema::table('customers', function (Blueprint $table) {
-            $table->string('street1', 60);
-            $table->string('street2', 60);
-            $table->dropColumn('address');
+            $table->string('street2', 60)->default('')->change();
         });
     }
 
@@ -28,9 +26,7 @@ class AddAddressFieldsToCustomersTable extends Migration
     public function down()
     {
         Schema::table('customers', function (Blueprint $table) {
-            $table->string('address', 100)->default('');
-            $table->dropColumn('street1');
-            $table->dropColumn('street2');
+            $table->string('street2', 60)->nullable(false)->default('')->change();
         });
     }
 }

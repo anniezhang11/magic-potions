@@ -199,6 +199,7 @@ class MagicPotion extends Component {
     }
 
     handleSuccess = (data) => {
+        // endpoint error
         if (data.error) {
             alert(data.error);
             return;

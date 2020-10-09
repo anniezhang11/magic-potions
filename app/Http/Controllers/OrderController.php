@@ -41,6 +41,12 @@ class OrderController extends Controller
                 );
             }
         } else {
+            if ($data->quantity > 3) {
+                return response()->json(
+                    ['error' => 'Sorry, you can only purchase 3 potions at a time.'], 
+                    409
+                );
+            }
             $customer = Customer::create([
                 'first_name' => $data->firstName, 
                 'last_name' => $data->lastName, 
@@ -102,10 +108,7 @@ class OrderController extends Controller
         $order->fulfilled = $data->fulfilled;
         $order->save();
 
-        return json(
-            "resource updated successfully", 
-            204
-        );
+        return response(200);
     }
 
     public function delete($id)
@@ -113,9 +116,6 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $order->delete();
 
-        return json(
-            "resource deleted successfully", 
-            204
-        );
+        return response(200);
     }
 }
