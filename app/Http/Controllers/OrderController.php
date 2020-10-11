@@ -9,6 +9,7 @@ use App\Models\Customer;
 
 class OrderController extends Controller
 {
+    // for the post order endpoint 
     public function store(Request $request)
     {
         $data = json_decode($request->getContent());
@@ -73,6 +74,7 @@ class OrderController extends Controller
 		], 201);
     }
 
+    // get order
     public function show($id)
     {
         $order = Order::findOrFail($id);
@@ -100,6 +102,7 @@ class OrderController extends Controller
 		], 200);
     }
 
+    // patch order
     public function update(Request $request)
     {
         $data = json_decode($request->getContent());
@@ -111,6 +114,7 @@ class OrderController extends Controller
         return response(200);
     }
 
+    // delete order
     public function delete($id)
     {
         $order = Order::findOrFail($id);

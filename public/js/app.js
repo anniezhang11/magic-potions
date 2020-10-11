@@ -70554,6 +70554,7 @@ var MagicPotion = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleSuccess", function (data) {
+      // endpoint error
       if (data.error) {
         alert(data.error);
         return;
