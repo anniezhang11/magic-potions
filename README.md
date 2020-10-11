@@ -60,5 +60,16 @@ from `orders` allows for that to be easily implemented if needed.
 ### What would you do to improve or scale the application?
 
 ### Bonus
-Unit tests.
-Custom CSS frontend.
+**Unit Tests** 
+Simple unit tests for each route can be found within `tests/Feature/Feature`, testing success and
+failure cases for each route.  
+
+**Custom CSS**
+I kept the product and contact/billing information portions separate, but added a couple aspects:
+
+- Responsiveness: as e-commerce is shifting more and more to mobile devices, I took 
+  responsiveness into account. The page is relatively responsive (improvements could be made
+  with more time). Both the product and contact/billing info are also displayed horizontally on larger screens. 
+- I added placeholder description text for the item with scaling in mind as mentioned above. 
+- I also incoporated a lightly Halloween inspired color palette as found on [https://coolors.co/palettes/trending]
+  (https://coolors.co/palettes/trending).
