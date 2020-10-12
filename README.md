@@ -155,9 +155,21 @@ or Laravel. With more time, there are quite a few things I would do differently:
 
 Furthermore, since this was my first time using Laravel, I'm sure there are many things that I'm missing that I'm 
 unaware of. In a different environment, I'd love the opportunity to get this code reviewed by a more senior engineer 
-to see how I can improve this application and if there's anything I'm doing blatantly incorrectly. 
+to see how I can improve this application and if there's anything I'm doing incorrectly. 
 
 ### What would you do to improve or scale the application?
+There's plenty of opportunity to improve and scale this application! Along with the three points mentioned above
+(testing, UI/UX, and validation improvements) as well as the db improvements mentioned previously, we 
+could also add authentication to further improve this platform. Currently, the endpoints are completely 
+unprotected, which is not ideal for a sales website. Some smaller improvements I would also include both in 
+general and for scaling purposes: 
+
+- 404 Not Found pages.
+- Implementing a separate cart page instead of having contact/billing info on the same page as the product page so 
+  that adding more products to the website can be more easily handled.
+- Incorporating user profiles so that returning users could have their contact/billing info pre-filled in. This would
+  also make the checkout process a bit smoother and faster.
+- Using uuids instead of incremental IDs so that database writes can be spread across many servers in the future.
 
 ### Bonus
 **Unit Tests** 
