@@ -37,7 +37,7 @@ class OrderController extends Controller
             } else if (($totalQuantity + $data->quantity) > 3) {
                 $remaining = 3 - $totalQuantity;
                 return response()->json(
-                    ['error' => 'Sorry, you can only purchase '.$remaining.' more potions this month.'], 
+                    ['error' => 'Sorry, you can only purchase '.$remaining.' more potion(s) this month.'], 
                     409
                 );
             }
